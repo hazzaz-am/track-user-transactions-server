@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./connectDb");
 const User = require("./models/User");
+const bcrypt = require("bcrypt");
 const Transaction = require("./models/Transaction");
 
 const app = express();
@@ -18,7 +19,6 @@ app.use([
 	}),
 	express.json(),
 ]);
-
 
 // registration route
 app.post("/register", async (req, res, next) => {
@@ -50,7 +50,6 @@ app.post("/register", async (req, res, next) => {
 // login route
 app.post("/login", async (req, res, next) => {
 	const { email, password } = req.body;
-
 	if (!email || !password) {
 		return res.status(400).json({ message: "Invalid Data" });
 	}
