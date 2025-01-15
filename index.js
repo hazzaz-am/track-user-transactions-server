@@ -12,8 +12,8 @@ const port = process.env.PORT || 5000;
 app.use([
 	cors({
 		origin: [
-			"http://localhost:5173",
-			// "https://track-user-transactions.vercel.app",
+			// "http://localhost:5173",
+			"https://track-user-transactions.vercel.app",
 		],
 		credentials: true,
 	}),
