@@ -3,10 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./connectDb");
 const User = require("./models/User");
-const bcrypt = require("bcrypt");
 const Transaction = require("./models/Transaction");
-const jwt = require("jsonwebtoken");
-const cookieParser = require("cookie-parser");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -20,7 +17,6 @@ app.use([
 		credentials: true,
 	}),
 	express.json(),
-	cookieParser(),
 ]);
 
 
